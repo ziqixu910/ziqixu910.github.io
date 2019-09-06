@@ -9,8 +9,8 @@ a {
 
 .nav {
 	width: 100%;
-	background-color: black;
-	padding: 10px;
+	background-color: brown;
+	padding: 20px;
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -23,6 +23,7 @@ a {
 	border-radius: 5px;
 	color: #000;
 	text-decoration: none;
+	cursor:pointer;
 }
 
 .title {
