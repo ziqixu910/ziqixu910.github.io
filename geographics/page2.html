@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        html, body, #mainView {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #mainView {
+            overflow: hidden;
+        }
+        #backTable {
+            border-collapse: collapse;
+            border: none;
+        }
+        #backTable tr td {
+            border: 1px solid black;
+            height: 50px;
+            width: 50px;
+        }
+        #backTable tr:nth-child(odd) td:nth-child(odd),
+        #backTable tr:nth-child(even) td:nth-child(even) {
+            background-color: yellow;
+        }
+        #backTable tr:nth-child(even) td:nth-child(odd),
+        #backTable tr:nth-child(odd) td:nth-child(even) {
+            background-color: white;
+        }
+        #calcDiv {
+            background-color: white;
+            border: 1px solid black;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 250px;
+            width: 200px;
+        }
+            #calcDiv table {
+                margin: auto;
+                margin-top: 25px;
+                height: 204px;
+                width: 162px;
+            }
+            #calcDiv table td {
+                height: 36px;
+                width: 36px;
+            }
+                #calcDiv table td input {
+                    height: 100%;
+                    width: 100%;
+                }
+                #calcDiv table td button {
+                    height: 100%;
+                    width: 100%;
+                }
+    </style>
+</head>
+<body>
+    <div id="mainView">
+        <table id="backTable"></table>
+        <div id="calcDiv">
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>7</button>
+                    </td>
+                    <td>
+                        <button>8</button>
+                    </td>
+                    <td>
+                        <button>9</button>
+                    </td>
+                    <td>
+                        <button>÷</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>4</button>
+                    </td>
+                    <td>
+                        <button>5</button>
+                    </td>
+                    <td>
+                        <button>6</button>
+                    </td>
+                    <td>
+                        <button>×</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>1</button>
+                    </td>
+                    <td>
+                        <button>2</button>
+                    </td>
+                    <td>
+                        <button>3</button>
+                    </td>
+                    <td>
+                        <button>-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>.</button>
+                    </td>
+                    <td>
+                        <button>0</button>
+                    </td>
+                    <td>
+                        <button>=</button>
+                    </td>
+                    <td>
+                        <button>+</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var minSize = 500;
+        var mainView = document.getElementById("mainView");
+        var backTable = document.getElementById("backTable");
+        var calcDiv = document.getElementById("calcDiv");
+        function draw() {
+            mainView.style.height = Math.max(document.body.clientHeight, minSize) + "px";
+            mainView.style.width = Math.max(document.body.clientWidth, minSize) + "px";
+            var xSize = Math.ceil(parseInt(mainView.style.width) / 50),
+                ySize = Math.ceil(parseInt(mainView.style.height) / 50);
+            var html = "";
+            for (var i = 0; i < ySize; ++i) {
+                html += "<tr>";
+                for (var j = 0; j < xSize; ++j) {
+                    html += "<td></td>";
+                }
+                html += "</tr>";
+            }
+            backTable.innerHTML = html;
+            var cellHeight = backTable.rows[0].cells[0].clientHeight + 1,
+                cellWidth = backTable.rows[0].cells[0].clientWidth + 1;
+            var calcDivHeight = cellHeight * 5, calcDivWidth = cellWidth * 4;
+            calcDiv.style.height = calcDivHeight + "px";
+            calcDiv.style.top = (Math.floor((parseInt(mainView.style.height) - calcDivHeight) / cellHeight / 2) * cellHeight) + "px";
+            calcDiv.style.width = calcDivWidth + "px";
+            calcDiv.style.left = (Math.floor((parseInt(mainView.style.width) - calcDivWidth) / cellWidth / 2) * cellWidth) + "px";
+        }
+        window.onresize = draw;
+        window.onload = draw;
+    </script>
+</body>
+</html>

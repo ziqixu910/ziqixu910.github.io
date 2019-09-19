@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        html, body, #mainView {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #mainView {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+        }
+        #imgDiv {
+            height: 260px;
+            width: 260px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            margin-top: -130px;
+            z-index: 999;
+        }
+            #imgDiv img {
+                height: 100%;
+                width: 100%;
+            }
+    </style>
+</head>
+<body>
+    <div id="mainView">
+    </div>
+    <div id="imgDiv">
+        <img src="指纹.png" />
+    </div>
+</body>
+</html>
