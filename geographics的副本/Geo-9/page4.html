@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            position: absolute;
+            height: 300%;
+            width: 300%;
+            transform-origin: 50% 50%;
+            left: -100%;
+            top: -100%;
+        }
+    </style>
+</head>
+<body style="overflow: hidden;">
+    <img src="map.jpg" />
+    <script>
+        var img = document.querySelector("img");
+        var degree = 0;
+        window.setInterval(function () {
+            ++degree;
+            degree %= 360;
+            img.style.transform = 'rotate(' + degree + 'deg)';
+        }, 200);
+    </script>
+</body>
+</html>

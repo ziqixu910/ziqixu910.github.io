@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            height: 80%;
+            width: 80%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        td {
+            vertical-align: bottom;
+        }
+
+            td div {
+                background-color: white;
+                width: 20%;
+                margin: auto;
+                visibility: hidden;
+            }
+
+            td:nth-child(1) div {
+                height: 52%;
+            }
+
+            td:nth-child(2) div {
+                height: 60%;
+            }
+
+            td:nth-child(3) div {
+                height: 68%;
+            }
+
+            td:nth-child(4) div {
+                height: 76%;
+            }
+
+            td:nth-child(5) div {
+                height: 84%;
+            }
+
+            td:nth-child(6) div {
+                height: 92%;
+            }
+
+            td:nth-child(7) div {
+                height: 100%;
+            }
+
+        img {
+            height: 280px;
+            width: 280px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <table>
+        <tr>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+            <td>
+                <div>&nbsp;</div>
+            </td>
+        </tr>
+    </table>
+    <img src="stop.png" />
+    <script>
+        var interval = 800;
+        var index = 1;
+        var timer = window.setInterval(function () {
+            if (index <= 7) {
+                document.querySelector("td:nth-child(" + index + ") div").style.visibility = "visible";
+            }
+            else if (index == 8) {
+                document.querySelector("img").style.visibility = "visible";
+            }
+            else {
+                window.clearInterval(timer);
+            }
+            ++index;
+        }, interval);
+    </script>
+</body>
+</html>

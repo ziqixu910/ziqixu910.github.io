@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            height: 100%;
+            width: 80%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flow {
+            height: 15%;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+
+        .box img {
+            height: 55%;
+            width: 100%;
+        }
+
+        #flow1 {
+            animation: flow1 3s infinite;
+        }
+
+        #flow2 {
+            animation: flow2 3s infinite;
+        }
+
+        #flow3 {
+            animation: flow3 3s infinite;
+        }
+
+        #flow4 {
+            animation: flow4 3s infinite;
+        }
+
+        #flow5 {
+            animation: flow5 3s infinite;
+        }
+
+        #flow6 {
+            animation: flow6 3s infinite;
+        }
+
+        #flow7 {
+            animation: flow7 3s infinite;
+        }
+
+        #flow8 {
+            animation: flow8 3s infinite;
+        }
+
+        #flow9 {
+            animation: flow9 3s infinite;
+        }
+
+        #flow10 {
+            animation: flow10 3s infinite;
+        }
+
+        #flow11 {
+            animation: flow11 3s infinite;
+        }
+
+        #flow12 {
+            animation: flow12 3s infinite;
+        }
+
+        @keyframes flow1 {
+            0% {
+                background: red;
+            }
+
+            33% {
+                background: yellow;
+            }
+
+            66% {
+                background: orange;
+            }
+
+            100% {
+                background: red;
+            }
+        }
+
+        @keyframes flow2 {
+            0% {
+                background: orange;
+            }
+
+            33% {
+                background: red;
+            }
+
+            66% {
+                background: yellow;
+            }
+
+            100% {
+                background: orange;
+            }
+        }
+
+        @keyframes flow3 {
+            0% {
+                background: yellow;
+            }
+
+            33% {
+                background: orange;
+            }
+
+            66% {
+                background: red;
+            }
+
+            100% {
+                background: yellow;
+            }
+        }
+
+        @keyframes flow4 {
+            0% {
+                background: #0d74b9;
+            }
+
+            33% {
+                background: #e1f5fe;
+            }
+
+            66% {
+                background: #29b6f6;
+            }
+
+            100% {
+                background: #0d74b9;
+            }
+        }
+
+        @keyframes flow5 {
+            0% {
+                background: #29b6f6;
+            }
+
+            33% {
+                background: #0d74b9;
+            }
+
+            66% {
+                background: #e1f5fe;
+            }
+
+            100% {
+                background: #29b6f6;
+            }
+        }
+
+        @keyframes flow6 {
+            0% {
+                background: #e1f5fe;
+            }
+
+            33% {
+                background: #29b6f6;
+            }
+
+            66% {
+                background: #0d74b9;
+            }
+
+            100% {
+                background: #e1f5fe;
+            }
+        }
+
+        @keyframes flow7 {
+            0% {
+                background: #56a36c;
+            }
+
+            33% {
+                background: #77c34f;
+            }
+
+            66% {
+                background: #5e8579;
+            }
+
+            100% {
+                background: #56a36c;
+            }
+        }
+
+        @keyframes flow8 {
+            0% {
+                background: #5e8579;
+            }
+
+            33% {
+                background: #56a36c;
+            }
+
+            66% {
+                background: #77c34f;
+            }
+
+            100% {
+                background: #5e8579;
+            }
+        }
+
+        @keyframes flow9 {
+            0% {
+                background: #77c34f;
+            }
+
+            33% {
+                background: #5e8579;
+            }
+
+            66% {
+                background: #56a36c;
+            }
+
+            100% {
+                background: #77c34f;
+            }
+        }
+
+        @keyframes flow10 {
+            0% {
+                background: #585c5b;
+            }
+
+            33% {
+                background: #c4cecb;
+            }
+
+            66% {
+                background: #919795;
+            }
+
+            100% {
+                background: #585c5b;
+            }
+        }
+
+        @keyframes flow11 {
+            0% {
+                background: #919795;
+            }
+
+            33% {
+                background: #585c5b;
+            }
+
+            66% {
+                background: #c4cecb;
+            }
+
+            100% {
+                background: #919795;
+            }
+        }
+
+        @keyframes flow12 {
+            0% {
+                background: #c4cecb;
+            }
+
+            33% {
+                background: #919795;
+            }
+
+            66% {
+                background: #585c5b;
+            }
+
+            100% {
+                background: #c4cecb;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div class="box">
+                    <div id="flow1" class="flow"></div>
+                    <div id="flow2" class="flow"></div>
+                    <div id="flow3" class="flow"></div>
+                    <img src="red.jpg" />
+                </div>
+            </td>
+            <td>
+                <div class="box">
+                    <div id="flow4" class="flow"></div>
+                    <div id="flow5" class="flow"></div>
+                    <div id="flow6" class="flow"></div>
+                    <img src="blue.jpg" />
+                </div>
+            </td>
+            <td>
+                <div class="box">
+                    <div id="flow7" class="flow"></div>
+                    <div id="flow8" class="flow"></div>
+                    <div id="flow9" class="flow"></div>
+                    <img src="green.jpg" />
+                </div>
+            </td>
+            <td>
+                <div class="box">
+                    <div id="flow10" class="flow"></div>
+                    <div id="flow11" class="flow"></div>
+                    <div id="flow12" class="flow"></div>
+                    <img src="grey.jpg" />
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

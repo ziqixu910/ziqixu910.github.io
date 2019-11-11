@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body, canvas {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body style="background-color: lightgreen;">
+    <canvas id="canvas" width="1000" height="400"></canvas>
+    <script>
+        var my_canvas = document.getElementById("canvas");
+        var phase = [[0.1, Math.PI / 2], [0.2, Math.PI / 3], [0.12, Math.PI / 4], [0.18, Math.PI / 5]];
+        window.setInterval(function () {
+            var content = my_canvas.getContext("2d");
+            content.strokeStyle = "red";
+            content.clearRect(0, 0, 1000, 400)
+            content.beginPath();
+            for (var p = 0; p < phase.length; ++p) {
+                var ph = phase[p];
+                var a = ph[0], b = ph[1];
+                content.moveTo(1, Math.sin(1 * a + b) * 10 + 80 * (p + 1));
+                for (var i = 1; i < 1000; ++i) {
+                    var x = i;
+                    var y = Math.sin(i * a + b) * 10 + 80 * (p + 1);
+                    content.lineTo(x, y);
+                }
+                ph[1] -= Math.PI / 36;
+                if (ph[1] < 0) {
+                    ph[1] += Math.PI * 2;
+                }
+            }
+            content.stroke();
+            content.closePath();
+        }, 100);
+    </script>
+</body>
+</html>

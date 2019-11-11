@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        html, body, #mainView {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #mainView {
+            overflow: hidden;
+        }
+
+        #backTable {
+            border-collapse: collapse;
+            border: none;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+            #backTable tr td {
+                border: 1px solid #ccc;
+            }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body onload="resize()">
+    <div id="mainView">
+        <table id="backTable"></table>
+    </div>
+    <script>
+        var len = 9;
+        var inHtml = "";
+        var tb = document.getElementById("backTable");
+        function resize() {
+            var val = Math.min(document.body.clientWidth, document.body.clientHeight) - 4 * len;
+            tb.style.height = tb.style.width = val + "px";
+        }
+        window.onresize = resize;
+        function getSequence(x, y) {
+            var center = (len - 1) / 2;
+            var ax = Math.abs(x - center), ay = Math.abs(y - center);
+            var a = Math.max(ax, ay);
+            var sequence = 0;
+            if (a > 0) {
+                sequence += Math.pow(a * 2 - 1, 2);
+            }
+            if (a == ax) {
+                if (x > center) {
+                    sequence += a * 2 + y - center;
+                }
+                else {
+                    sequence += a * 6 + center - y;
+                }
+            }
+            else {
+                if (y > center) {
+                    sequence += a * 4 + center - x;
+                }
+                else {
+                    sequence += x >= center ? x - center : a * 8 - ax;
+                }
+            }
+            return sequence;
+        }
+        for (var i = 0; i < len; ++i) {
+            inHtml += "<tr>";
+            for (var j = 0; j < len; ++j) {
+                inHtml += "<td id='td" + getSequence(j, i) + "'><img src='code.png'/></td>";
+            }
+            inHtml += "</tr>";
+        }
+        tb.innerHTML = inHtml;
+        var index = 0;
+        var timer = window.setInterval(function () {
+            if (index < Math.pow(len, 2)) {
+                document.querySelector("#td" + index + " img").style.visibility = "visible";
+                ++index;
+            }
+            else {
+                window.clearInterval(timer);
+            }
+        }, 100);
+    </script>
+</body>
+</html>

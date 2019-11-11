@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .row {
+            position: absolute;
+            min-width: 200%;
+            height: 16.67%;
+            overflow: hidden;
+            font-size: 0;
+            white-space: nowrap;
+        }
+
+        .cell {
+            width: 10%;
+            height: 100%;
+            display: inline-block;
+            border: 1px solid #ccc;
+        }
+
+            .cell:nth-child(odd) {
+                background-color: black;
+            }
+
+            .cell:nth-child(even) {
+                background-color: orange;
+            }
+
+        img {
+            height: 33.33%;
+            width: 33.33%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell">&nbsp;</div>
+    </div>
+    <img src="box.png" />
+    <script>
+        var pos = 0;
+        var step = 0.05;
+        var rows = document.getElementsByClassName("row");
+        for (var i = 0; i < rows.length; ++i) {
+            if (i % 2) {
+                rows[i].style.left = "0px";
+            } else {
+                rows[i].style.right = "0px";
+            }
+        }
+        function setTop() {
+            for (var i = 0; i < rows.length; ++i) {
+                rows[i].style.top = i * rows[i].offsetHeight + "px";
+            }
+        }
+        window.onresize = setTop;
+        setTop();
+        window.setInterval(function () {
+            for (var i = 0; i < rows.length; ++i) {
+                pos += step;
+                pos %= 100;
+                var width = document.querySelector(".row").offsetWidth / 2;
+                if (i % 2) {
+                    rows[i].style.left = -width * pos / 100 + "px";
+                } else {
+                    rows[i].style.right = -width * pos / 100 + "0px";
+                }
+            }
+        }, 60);
+    </script>
+</body>
+</html>
