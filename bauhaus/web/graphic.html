@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Graphic</title>
+    <style>
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stage {
+            margin: auto;
+            margin-top: 100px;
+            width: 80%;
+        }
+
+        .item {
+            border-top: 30px solid black;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .stage .item:nth-last-child(1) {
+            border-bottom: 30px solid black;
+            margin-bottom: 100px;
+        }
+
+        .item table {
+            position: relative;
+            left: 100%;
+            transition: all 5s;
+        }
+
+            .item table.move {
+                transform: translateX(-100%);
+            }
+
+            .item table tr td:nth-child(odd) {
+                width: 50%;
+            }
+
+            .item table tr td:nth-child(even) {
+                width: 50%;
+            }
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../img/Graphic/01.png" />
+                    </td>
+                    <td>
+                        <p>This invitation by Herbert Bayer for the Bauhaus’s last dance in Weimar, before its move to Gropius’s iconic building in Dessau, is also an ironic last gasp for Dadaistic disorder. With the move, the Austrian student graduated to the role of Bauhaus master, and the school rebranded along stricter, rationalist lines and a greater emphasis on typographic sobriety.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../img/Graphic/02.png" />
+                    </td>
+                    <td>
+                        <p>This back cover of Schmidt’s brochure makes the industrial city of Dessau look like the center of the world, or at least Germany. Schmidt indicates travel distances to other cities via car, train, and—in a modern sign of the times—plane, with concentric circles radiating outward. (The front cover features a photomontage of local highlights floating over an aerial view of the city).</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../img/Graphic/03.png" />
+                    </td>
+                    <td>
+                        <p>You can see the working process in Bayer’s large (almost 15 x 24”) specimen of Universal, his famous single-case, geometrically derived typeface: there’s the indent of the compass used to construct the letterforms, the broad strokes in gouache, and the collaged corrections to the ‘g’ and ‘k’ (his handwritten legend indicates that these are ‘not yet finished’).</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../img/Graphic/05.png" />
+                    </td>
+                    <td>
+                        <p>Though not well known, the Hungarian-born Andor Weininger was a model student of the early Bauhaus, active in architecture, painting, and stage design, and a fixture of the school’s jazz band. Andor and his wife Eva later collaborated on the design of a showroom for Adler automobiles (the commission came through Gropius, who designed cars for Adler, and tapped Bayer to create a prospectus). Here Weininger stages an intersection of exquisitely rendered cars in an abstract, perspectival space, the flooring picked out by incised lines. The Adler name reads forward and backward, though faint markings show that Weininger had considered a different orientation.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        window.setTimeout(function () {
+            var nodes = document.querySelectorAll(".item table");
+            for (var i = 0; i < nodes.length; ++i) {
+                nodes[i].classList.add("move");
+            }
+        }, 200);
+    </script>
+</body>
+</html>

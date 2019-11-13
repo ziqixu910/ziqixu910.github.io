@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Architecture</title>
+    <style>
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stage {
+            margin: auto;
+            margin-top: 100px;
+            width: 80%;
+        }
+
+        .item {
+            border-top: 30px solid black;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .stage .item:nth-last-child(1) {
+            border-bottom: 30px solid black;
+            margin-bottom: 100px;
+        }
+
+        .item table {
+            display: inline-table;
+            position: relative;
+            top: 0;
+            transition: all 8s;
+            width: 200%;
+        }
+
+            .item table:nth-child(1) {
+                left: 0;
+            }
+
+            .item table.move {
+                transform: translateX(-50%);
+            }
+
+            .item table tr td:nth-child(1) {
+                width: 50%;
+            }
+
+            .item table tr td:nth-child(2) {
+                width: 25%;
+            }
+
+            .item table tr td:nth-child(3) {
+                width: 25%;
+            }
+
+        .year {
+            font-size: 72px;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1925</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1925.png" />
+                    </td>
+                    <td>
+                        <p>The Bauhaus moves to Dessau,where Gropius designs the Bauhaus studio building.</p>
+                        <p>Marcel Breuer returns to Bauhaus as a master and designs an early version of the bent metal Club chair (model B3)</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1927</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1927.png" />
+                    </td>
+                    <td>
+                        <p>Marcel Breuer designs interiors for the Weissenhofsiedlung housing project.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1929</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1929.png" />
+                    </td>
+                    <td>
+                        <p>Ludwig Mies van der Rohe designs the Barcelona Pavilion.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1930</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1930.png" />
+                    </td>
+                    <td>
+                        <p>Mies van der Rohe becomes the last director of the Bauhaus and designs Villa Tugendhat in Czech Republic defining the functionalist style.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1934</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1934.png" />
+                    </td>
+                    <td>
+                        <p>Walter Gropius moves to London,and lives in the Isokon building designed by Wells Coates.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1937</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1937.png" />
+                    </td>
+                    <td>
+                        <p>Gropius moves to US and designs Gropius House in Lincoln,Massachusetts.</p>
+                        <p>Breuer moves to the Harvard Graduate School of Design to work with Gropius.</p>
+                        <p>Moholy-Nagy goes to Chicago,founding the New Bauhaus as a continuation of the work in Germany where he becomes director.</p>
+                        <p>Mies van der Rohe emigrates to the US and becomes head of IIT in Chicago.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1939</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1939.png" />
+                    </td>
+                    <td>
+                        <p>Mies van der Rohe starts designing the IIT Campus in Chicago which completes in 1958.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="item">
+            <table>
+                <tr>
+                    <td>
+                        <p class="year">1951</p>
+                    </td>
+                    <td>
+                        <img src="../img/Architecture/1951.png" />
+                    </td>
+                    <td>
+                        <p>Mies van der Rohe designs the Seagram Building in New York City.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        window.setTimeout(function () {
+            var nodes = document.querySelectorAll(".item table");
+            for (var i = 0; i < nodes.length; ++i) {
+                nodes[i].classList.add("move");
+            }
+        }, 200);
+    </script>
+</body>
+</html>
