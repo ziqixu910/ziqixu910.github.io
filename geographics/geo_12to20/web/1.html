@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>第一个页面</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <img class="box" src="../img/1.jpg" />
+    <script>
+        var box = document.querySelector(".box");
+        var show = true;
+        window.setInterval(function () {
+            box.style.display = show ? "none" : "block";
+            show = !show;
+        }, 50);
+    </script>
+</body>
+</html>

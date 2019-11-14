@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>第六个页面</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .box {
+            display: block;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            border: 1px solid black;
+        }
+
+        .rotate{
+        	position:absolute;
+        	width:100%;
+        	height:100%;
+        	left:0;
+        	top:0;
+        	border:1px solid red;
+        }
+
+        .rotate img{
+        	width: 100%;
+        	height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    	<div class="rotate">
+    		<img src="../img/6.jpg" />
+    	</div>
+    </div>
+    <script>
+    	var box = document.querySelector(".box"),
+    	rotate = document.querySelector(".rotate");
+    	var degree = 0, step = 2*Math.PI/360;
+    	window.setInterval(function(){
+    		degree += step;
+    		if (degree >= 2*Math.PI)
+    			degree -= 2*Math.PI;
+    		var bw = box.offsetWidth, bh = box.offsetHeight;
+    		var bx = Math.pow(Math.pow(bw,2)+Math.pow(bh,2),0.5);
+    		var alpha = Math.atan(bw/bh);
+    		if (degree<=0.5*Math.PI)
+    		{
+    			var d1 = alpha - degree,
+    				d2 = alpha + degree - 0.5*Math.PI;
+	    		var rh = Math.cos(d1)*bx,
+	    			rw = Math.cos(d2)*bx;
+	    		var rt = (bh-rh)/2,
+	    			rl = (bw-rw)/2;
+	    		rotate.style.top = rt+"px";
+	    		rotate.style.left = rl+"px";
+	    		rotate.style.height = rh+"px";
+	    		rotate.style.width = rw+"px";
+    		}
+    		else if (degree<=Math.PI){
+    			var d1 = alpha - Math.PI + degree,
+    				d2 = alpha - degree + 0.5*Math.PI;
+	    		var rh = Math.cos(d1)*bx,
+	    			rw = Math.cos(d2)*bx;
+	    		var rt = (bh-rh)/2,
+	    			rl = (bw-rw)/2;
+	    		rotate.style.top = rt+"px";
+	    		rotate.style.left = rl+"px";
+	    		rotate.style.height = rh+"px";
+	    		rotate.style.width = rw+"px";
+    		}
+    		else if (degree<=1.5*Math.PI){
+    			var d1 = alpha - degree + Math.PI,
+    				d2 = alpha + degree - 1.5*Math.PI;
+	    		var rh = Math.cos(d1)*bx,
+	    			rw = Math.cos(d2)*bx;
+	    		var rt = (bh-rh)/2,
+	    			rl = (bw-rw)/2;
+	    		rotate.style.top = rt+"px";
+	    		rotate.style.left = rl+"px";
+	    		rotate.style.height = rh+"px";
+	    		rotate.style.width = rw+"px";
+    		}
+    		else{
+    			var d1 = alpha - 2*Math.PI + degree,
+    				d2 = alpha - degree - 0.5*Math.PI;
+	    		var rh = Math.cos(d1)*bx,
+	    			rw = Math.cos(d2)*bx;
+	    		var rt = (bh-rh)/2,
+	    			rl = (bw-rw)/2;
+	    		rotate.style.top = rt+"px";
+	    		rotate.style.left = rl+"px";
+	    		rotate.style.height = rh+"px";
+	    		rotate.style.width = rw+"px";
+    		}
+    		rotate.style.transform = 'rotate('+degree+'rad)';
+    	}, 60);
+    </script>
+</body>
+</html>

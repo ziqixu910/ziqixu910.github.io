@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>第三个页面</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .box {
+            display: block;
+            position: absolute;
+            height: 36%;
+            width: auto;
+            margin: auto;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            animation: 2s box-animation infinite linear;
+        }
+
+        @keyframes box-animation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img class="box" src="../img/3.jpg" />
+</body>
+</html>
