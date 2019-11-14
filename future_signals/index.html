@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>首页</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .back {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            margin: auto;
+            animation-timing-function: linear;
+            animation: box-animation 24s;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        @keyframes box-animation {
+            from {
+                width: 6%;
+                height: 6%;
+                left: 47%;
+                top: 47%;
+            }
+
+            to {
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .barrage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 600px;
+            height: 100%;
+            animation-timing-function: linear;
+            animation: barrage-animation 8s infinite;
+        }
+            .barrage p {
+                color: white;
+                font-size: 50px;
+                width: 100%;
+                height: 30%;
+                text-align: center;
+            }
+                .barrage p:nth-child(1) {
+                    vertical-align: top;
+                }
+                .barrage p:nth-child(2) {
+                    vertical-align: central;
+                }
+                .barrage p:nth-child(3) {
+                    vertical-align: bottom;
+                }
+
+        @keyframes barrage-animation {
+            from {
+                left:-600px;
+            }
+            to {
+                left: 100%;
+            }
+        }
+        .pie {
+            display: none;
+            position: absolute;
+            margin: auto;
+            padding: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 18em;
+            height: 18em;
+            border-radius: 50%;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .slice {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 50%;
+            transform-origin: 0% 100%;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .slice-one {
+            transform: rotate(0deg) skewY(-30deg);
+        }
+
+        .slice-two {
+            transform: rotate(-60deg) skewY(-30deg);
+        }
+
+        .slice-three {
+            transform: rotate(-120deg) skewY(-30deg);
+        }
+
+        .slice-four {
+            transform: rotate(-180deg) skewY(-30deg);
+        }
+
+        .slice-five {
+            transform: rotate(-240deg) skewY(-30deg);
+        }
+
+        .slice-six {
+            transform: rotate(-300deg) skewY(-30deg);
+        }
+
+        .pie img {
+            width:100%;
+            height:100%;
+        }
+
+        .pie.active {
+            display: block;
+            animation: pie-animation 3s infinite linear;
+        }
+
+        @keyframes pie-animation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <div class="back">
+        <img class="box" src="img/背景图.jpg" />
+    </div>
+    <div class="barrage">
+        <p>URBAN DEVELOPMENT</p>
+        <p>CAREER WOMAN</p>
+        <p>TIME WHICH CHILDREN</p>
+    </div>
+    <div class='pie'>
+        <div class='slice-one slice' onclick="openUrl('web/1.html')"></div>
+        <div class='slice-two slice' onclick="openUrl('web/3.html')"></div>
+        <div class='slice-three slice' onclick="openUrl('web/3.html')"></div>
+        <div class='slice-four slice' onclick="openUrl('web/2.html')"></div>
+        <div class='slice-five slice' onclick="openUrl('web/2.html')"></div>
+        <div class='slice-six slice' onclick="openUrl('web/1.html')"></div>
+        <img src="img/滚轮标签.png" />
+    </div>
+    <script>
+        var back = document.querySelector(".back");
+        function resize() {
+            back.style.width = document.body.clientWidth * 3 + "px";
+            back.style.height = document.body.clientHeight * 3 + "px";
+            back.style.left = -document.body.clientWidth + "px";
+            back.style.top = -document.body.clientHeight + "px";
+        }
+        window.onresize = resize;
+        resize();
+        window.setTimeout(function () {
+            document.querySelector(".barrage").style.display = "none";
+            document.querySelector(".pie").classList.add("active");
+        }, 24000);
+        function openUrl(url) {
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
